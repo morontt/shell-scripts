@@ -1,0 +1,24 @@
+#!/bin/bash
+
+directories="app/cache app/logs"
+
+APACHE_GROUP=`ps axho group,comm | grep -E "httpd|apache" | uniq | grep -v "root" | awk 'END {print $1}'`
+
+createdir() {
+    mkdir -p $1
+    echo "- $1 has been created"
+}
+changegrpdir() {
+    chgrp $APACHE_GROUP $1
+    chmod g+s $1
+    echo "- $1 change group"
+}
+
+for directory in $directories; do
+    if [ ! -d $directory ]; then
+        createdir $directory
+    fi
+    if [ -d $directory ]; then
+        changegrpdir $directory
+    fi
+done
