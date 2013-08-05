@@ -1,0 +1,5 @@
+alias gits="git status"
+alias gitdev="git checkout develop"
+alias gitp="git pull origin develop"
+alias gitf="git fetch"
+alias gitrb="git rebase develop"
