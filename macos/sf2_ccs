@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -R ./app/cache/dev/*
+rm -R ./app/cache/prod/*
+rm -R ./app/cache/test/*
