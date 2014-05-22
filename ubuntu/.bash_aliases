@@ -1,5 +1,6 @@
 alias gits="git status"
 alias gitdev="git checkout develop"
+alias gitmast="git checkout master"
 alias gitp="git pull origin develop"
 alias gitpm="git pull origin master"
 alias gitf="git fetch"
