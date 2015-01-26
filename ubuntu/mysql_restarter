@@ -1,10 +1,18 @@
 #!/bin/bash
 
+# Be sure that is executable:
+# chmod a+x /path/to/mysql_restarter
+#
+# Added to cron (as root):
+# sudo crontab -e
+#
+# * * * * * /path/to/mysql_restarter
+
 LOG=/var/log/mysql_restarter.log
-MYSQL_STATUS=`service mysql status | grep process`
+MYSQL_STATUS="$(sudo /usr/sbin/service mysql status | grep running)"
 
 if [ -z "$MYSQL_STATUS" ]
 then
     echo "$(date -R) :(" >> $LOG
-    service mysql start
+    sudo /usr/sbin/service mysql start
 fi
