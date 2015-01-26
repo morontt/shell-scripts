@@ -1,0 +1,10 @@
+#!/bin/bash
+
+LOG=/var/log/mysql_restarter.log
+MYSQL_STATUS=`service mysql status | grep process`
+
+if [ -z "$MYSQL_STATUS" ]
+then
+    echo "$(date -R) :(" >> $LOG
+    service mysql start
+fi
