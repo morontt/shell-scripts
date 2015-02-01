@@ -26,7 +26,7 @@ setenv	PAGER	more
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
 	# set prompt = "%N@%m:%~ %# "
-	set prompt="%{\033[32m%}%N@%m%{\033[00m%}:%{\033[34m%}%~%{\033[00m%} %#\n$ "
+	set prompt="%{\033[01;32m%}%N@%m%{\033[00m%}:%{\033[01;34m%}%~%{\033[00m%} %#\n$ "
 	set promptchars = "%#"
 
 	set filec
