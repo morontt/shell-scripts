@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo mount -t tmpfs -o size=768m tmpfs ~/nfs/ramdisk
