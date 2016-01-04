@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Update all outdated packages except selected
+
+PKGS=$(port outdated | awk '{if (!($1 == "The" || $1 == "watchman" || $1 == "nodejs" || $1 == "npm")) print $1}')
+for PKG in $PKGS; do
+    sudo port upgrade $PKG
+done
