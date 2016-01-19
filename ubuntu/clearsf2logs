@@ -1,0 +1,13 @@
+#!/bin/bash
+
+LOGS=`find . \( -name "dev.log" -o -name "prod.log" -o -name "test.log" \) | grep app/logs`
+echo "Files:"
+SIZEF=0
+for LOGFILE in $LOGS; do
+    echo $LOGFILE
+    S=`ls -l $LOGFILE | awk '{ print $5 }'`
+    SIZEF=$(($SIZEF + $S))
+    cat /dev/null > $LOGFILE
+done
+echo ""
+echo "Size: "$(($SIZEF / 1048576))" MB"
