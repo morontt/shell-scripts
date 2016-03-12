@@ -3,9 +3,9 @@
 # Update all outdated packages except selected
 # Usage: sudo ./portupdater
 
-port selfupdate
+#port selfupdate
 
-PKGS=$(port outdated | awk '{if (!($1 == "The" || $1 == "watchman" || $1 == "nodejs" || $1 == "npm")) print $1}')
+PKGS=$(port outdated | awk '{if (!($1 == "The" || $1 == "watchman" || $1 == "nodejs" || $1 == "npm" || $1 == "ImageMagick")) print $1}')
 for PKG in $PKGS; do
     port upgrade $PKG
 done
